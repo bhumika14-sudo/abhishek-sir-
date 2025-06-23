@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gifts for Abhishek Sir 🎁</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Comic Sans MS', cursive;
+      background: linear-gradient(135deg, #fff0f5, #ccf2ff);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      margin-top: 30px;
+      font-size: 3em;
+      color: #ff69b4;
+      animation: fadeIn 1s ease-in;
+    }
+
+    .gift-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 40px;
+      padding: 20px;
+    }
+
+    .gift-box {
+      width: 130px;
+      height: 130px;
+      background: linear-gradient(to bottom right, #ffb6c1, #ffc0cb);
+      border-radius: 20px;
+      box-shadow: 0 0 15px #ff69b4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5em;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .gift-box:hover {
+      transform: scale(1.1);
+    }
+
+    .message {
+      display: none;
+      margin-top: 20px;
+      font-size: 1.6em;
+      color: #ff4081;
+      background-color: #fff0f5;
+      padding: 15px 25px;
+      border-radius: 15px;
+      box-shadow: 0 0 10px #fbb;
+      animation: fadeInUp 0.8s ease-in-out;
+      z-index: 100;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeInUp {
+      from { transform: translateY(30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .emoji-float {
+      position: absolute;
+      font-size: 2em;
+      pointer-events: none;
+      animation: floatUp 3s ease-in forwards;
+      z-index: 10;
+    }
+
+    @keyframes floatUp {
+      0% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(-300px) scale(1.5);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎁 Special Gifts for my Abhishek Sir  😊</h1>
+
+  <div class="gift-container">
+    <div class="gift-box" onclick="showMessage(1)">🌟</div>
+    <div class="gift-box" onclick="showMessage(2)">🎓</div>
+    <div class="gift-box" onclick="showMessage(3)">📚</div>
+    <div class="gift-box" onclick="showMessage(4)">💡</div>
+    <div class="gift-box" onclick="showMessage(5)">👑</div>
+  </div>
+
+  <div id="msg1" class="message">You're a star in our lives and You're a gift for me!  🌟</div>
+  <div id="msg2" class="message">Thanks for teaching with heart and soul and Your smile makes learning brighter! 🎓</div>
+  <div id="msg3" class="message">You made learning a joy and You inspire hearts and minds — truly amazing!📚✨</div>
+  <div id="msg4" class="message">You light the path with your wisdom and Thank you for your kindness , patience and everytime support💡</div>
+  <div id="msg5" class="message">You're the KING of hearts, Sir and I are lucky to have YOU, Abhishek Sir!  👑💖</div>
+
+  <script>
+    function showMessage(num) {
+      // Hide all messages
+      for (let i = 1; i <= 5; i++) {
+        document.getElementById(`msg${i}`).style.display = "none";
+      }
+
+      // Show selected message
+      document.getElementById(`msg${num}`).style.display = "block";
+
+      // Different emojis for each box
+      const emojiSets = {
+        1: ["💖"],
+        2: ["🌟"],
+        3: ["🎉"],
+        4: ["🌈"],
+        5: ["👑"]
+      };
+
+      // Create floating emojis
+      for (let i = 0; i < 25; i++) {
+        createFloatingEmoji(emojiSets[num]);
+      }
+    }
+
+    function createFloatingEmoji(emojis) {
+      const emoji = document.createElement("div");
+      emoji.classList.add("emoji-float");
+      emoji.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+      emoji.style.left = Math.random() * window.innerWidth + "px";
+      emoji.style.top = window.innerHeight - 50 + "px";
+      document.body.appendChild(emoji);
+
+      setTimeout(() => {
+        emoji.remove();
+      }, 3000);
+    }
+  </script>
+
+</body>
+</html>
